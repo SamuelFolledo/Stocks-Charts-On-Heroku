@@ -9,53 +9,38 @@
     </head>
     <body>
         <div class="container">
-            <h1>Graphing with Chartist</h1>
+            <h1>Graphing Stocks with Chartist</h1>
             <div class="data-area">
                 <div class="control">
                     
-                    <h3>Time Frame</h3>
+                    <h3>Time Frame in Years</h3>
                     <div class="control-date">
                         <input class="underlined-input" type="number" value="2013" min="2013" max="2018">
                         <p>to</p>
                         <input class="underlined-input" type="number" value="2013" min="2013" max="2018">
                     </div>
-                    <h3>Selected columns</h3>
+                    <div class="control-button">
+                        <input type="button" onclick="updateChart()" value="Update chart">
+                    </div>
+                    <h3>Selected stocks</h3>
                     <div class="control-column">
                         <ul>
                             {% for stock in stocks %}
-                                <li class="control-column-item">
-                                    {{ stock }}
-                                    <input type="color" value="#0140BA"/>
-                                </li>
-                                <!-- <li class="control-column-item checked">
-                                    AAL
-                                    <input type="color" value="#0140BA"/>
-                                </li>
-                                <li class="control-column-item checked">
-                                    AAPL
-                                    <input type="color" value="#01FF04"/>
-                                </li>
-                                <li class="control-column-item">
-                                    AMZN
-                                    <input type="color" value="#F3F6C3"/>
-                                </li>
-                                <li class="control-column-item checked">
-                                    ABC
-                                    <input type="color" value="#0140BA"/>
-                                </li>
-                                <li class="control-column-item checked">
-                                    CVS
-                                    <input type="color" value="#01FF04"/>
-                                </li>
-                                <li class="control-column-item">
-                                    CTXS
-                                    <input type="color" value="#F3F6C3"/>
-                                </li> -->
+                                {% if loop.index == 1 %}
+                                    <!-- Check first stock at default -->
+                                    <li class="control-column-item checked">
+                                        {{ stock.name }}
+                                        <input type="color" value="{{ stock.hex_color }}"/>
+                                    </li>
+                                    
+                                {% else %}
+                                    <li class="control-column-item">
+                                        {{ stock.name }}
+                                        <input type="color" value="{{ stock.hex_color }}"/>
+                                    </li>
+                                {% endif %}
                             {% endfor %}
                         </ul>
-                    </div>
-                    <div class="control-button">
-                        <input type="button" onclick="updateChart()" value="Update chart">
                     </div>
                 </div>
                 <div class="chart">
