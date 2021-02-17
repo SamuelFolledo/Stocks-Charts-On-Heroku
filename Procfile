@@ -1,1 +1,1 @@
-web: gunicorn Chartist_Flask_Homework:StocksCharts
+web: gunicorn --bind 0.0.0.0:$PORT Chartist_Flask_Homework:app
