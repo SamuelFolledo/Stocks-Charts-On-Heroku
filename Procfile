@@ -1,0 +1,1 @@
+web: gunicorn Chartist_Flask_Homework:StocksCharts
