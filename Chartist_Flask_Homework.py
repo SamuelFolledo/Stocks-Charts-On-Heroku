@@ -9,7 +9,8 @@ from flask import Flask, render_template, request
 app = Flask(__name__)
 
 # Attach our dataframe to our app
-DF_PATH = '/Users/samuelfolledo/Library/Mobile Documents/com~apple~CloudDocs/Desktop/MakeSchool/Term3-2/DS2.3 - Data Science in Production/HW 1 - Chartist and Flask/all_stocks_5yr.csv'
+# DF_PATH = '/Users/samuelfolledo/Library/Mobile Documents/com~apple~CloudDocs/Desktop/MakeSchool/Term3-2/DS2.3 - Data Science in Production/HW 1 - Chartist and Flask/all_stocks_5yr.csv'
+DF_PATH = 'all_stocks_5yr.csv'
 app.df = pd.read_csv(DF_PATH, skiprows=1)
 app.df.columns = ["date", "open", "high", "low", "close", "volume", "Name"]
 
